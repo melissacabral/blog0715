@@ -4,13 +4,17 @@ include( SITE_PATH . '/includes/functions.php');
 include( SITE_PATH . '/includes/header.php');
 
 //figure out which post to show
-$post_id = $_GET['post_id'];
+$post_id = $_GET['post_id']; 
+
+//parse the comment form
+include( SITE_PATH . '/includes/comment-parser.php' );
 ?>
 
 <main>
 	<?php 
 	//write a query to get just title, body,  date, and category name of the post we are trying to view
-	$query = "SELECT posts.title, posts.body, posts.date, categories.name
+	$query = "SELECT posts.title, posts.body, posts.date, categories.name, 
+				posts.allow_comments
 		    FROM posts, categories
 		    WHERE posts.is_published = 1
 		    AND posts.category_id = categories.category_id
@@ -22,11 +26,13 @@ $post_id = $_GET['post_id'];
 	if( $result->num_rows >= 1 ){
 		//success - rows were found - loop through them!
 		while( $row = $result->fetch_assoc() ){
+			//figure out if comments are allowed so we can show/hide the form later
+			$allow_comments = $row['allow_comments'];
 			//display one post (row)
 			?>
 			<article>
 				<h2><?php echo $row['title']; ?></h2>
-				<p><?php echo $row['body']; ?></p>
+				<?php echo $row['body']; ?>
 				<footer>Posted on: 
 				<?php echo convert_date( $row['date'] ) ?>
 				In the category: <?php echo $row['name'] ?>
@@ -55,7 +61,7 @@ $post_id = $_GET['post_id'];
 							<?php echo $row['name']; ?></a> 
 							on <?php echo convert_date($row['date']); ?>
 						</h3>
-						<p><?php echo $row['body'] ?></p>
+						<?php echo $row['body'] ?>
 					</li>
 					<?php }//end while ?>
 				</ul>
@@ -65,8 +71,14 @@ $post_id = $_GET['post_id'];
 					echo 'No comments on this post yet.';
 				} ?>
 			</section>
-	<?php
-		}
+
+			<?php //are comments allowed on this post?
+			if( $allow_comments ){ 
+				include( SITE_PATH . '/includes/comment-form.php' ); 
+			}else{
+				echo 'Comments are closed on this post.';
+			} 
+		} //end while
 	}else{
 		//no rows found
 		echo 'Sorry, no posts found.';

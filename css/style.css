@@ -36,6 +36,17 @@ main img{
 .comments li{
 	clear: both;
 }
+
+.comment-form label{
+	display: block;
+}
+.comment-form input,
+.comment-form textarea{
+	width:100%;
+}
+input[type=submit]{
+	width:auto;
+}
 @media only screen and (min-width: 480px) {
 	main{
 		float:right;
