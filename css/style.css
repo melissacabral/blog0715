@@ -1,0 +1,56 @@
+html{
+	
+	background-color:#979797;
+	background-image: url('../images/triangular.png');
+	background-attachment: fixed;
+	box-sizing: border-box;
+	font-size:100%;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body{
+	background-color: #fff;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	max-width: 60em;
+	margin: 2vw auto;
+	
+}
+header, footer{
+	background-color: #EEEEEE;
+	padding:.5em 2vw;
+}
+main{
+	padding:.5em 2vw;
+	font-size:1.2em;
+	line-height: 1.3em;
+}
+aside{
+	padding:.5em 2vw;
+}
+main img{
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.comments li{
+	clear: both;
+}
+@media only screen and (min-width: 480px) {
+	main{
+		float:right;
+		width:70%;
+
+	}
+	main img{
+		float:right;
+		margin-left:.5em;
+	}
+	aside{
+		float:left;
+		width:30%;
+	}
+	footer{
+		clear:both;
+	}
+}
