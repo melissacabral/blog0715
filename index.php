@@ -7,6 +7,7 @@ include( SITE_PATH . '/includes/header.php');
 <main>
 	<?php 
 	//write a query to get just title, body,  date, and category name of all published posts, newest first
+	
 	$query = "SELECT posts.title, posts.body, posts.date, categories.name, posts.post_id
 		    FROM posts, categories
 		    WHERE posts.is_published = 1

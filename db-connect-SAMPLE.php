@@ -19,6 +19,9 @@ define( 'SITE_PATH', 'C:\xampp\htdocs\melissa-php-0715\blog' );
 //URL is used in <a href >, <img src >, <link> etc
 define( 'SITE_URL', 'http://localhost/melissa-php-0715/blog' );
 
+/* change character set to utf8 */
+$db->set_charset("utf8");
+
 
 //Error reporting
 error_reporting(E_ALL & ~E_NOTICE);
