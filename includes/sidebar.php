@@ -1,4 +1,10 @@
 <aside>
+	<form action="<?php echo SITE_URL ?>/search.php" method="get">
+		<label>Search:</label>
+		<input type="search" name="phrase">
+
+		<input type="submit" value="search">
+	</form>
 	
 	<?php //get title and URL of all the links in alphabetical order by title 
 	$query = "SELECT title, url
