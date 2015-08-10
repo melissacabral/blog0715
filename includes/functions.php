@@ -25,5 +25,24 @@ function limit_text($text, $limit) {
 	return $text;
 }
 
+//clean string data for the DB
+function clean_input( $dirty_data ){
+	//use the DB connection already established
+	global $db;
+	//clean the data and 'return' it so we can continue working with it
+	return mysqli_real_escape_string($db, strip_tags( $dirty_data ));
+}
+
+//display an array as a bulleted list
+function list_array( $des_array ){
+	if( is_array( $des_array ) ){
+		echo '<ul>';
+		foreach( $des_array as $item ){
+			echo '<li>' . $item . '</li>';
+		}
+		echo '</ul>';
+	}
+}
+
 
 //no close PHP

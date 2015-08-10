@@ -18,6 +18,7 @@ if($result->num_rows == 0){
 	//send the user to the login form
 	header('Location:' . SITE_URL . '/login.php');
 }
+//@TODO Add constants for user info
 ?>
 <!doctype html>
 <html>
