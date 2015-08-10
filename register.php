@@ -102,20 +102,25 @@ if( $_POST['did_register'] ){
 	<title>Create an Account</title>
 	<link rel="stylesheet" type="text/css" href="admin/css/admin-style.css">
 </head>
-<body>
+<body class="login">
 	<h1>Create an Account</h1>
 	
-	<?php list_array($errors); ?>
+	<?php 
+	if(isset($errors)){
+		echo '<div class="error message">';
+		list_array($errors); 
+		echo '</div>';
+	}?>
 
-	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-		<label>Username:</label>
+	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" novalidate>
+		<label>Username: <span class="req">*</span></label>
 		<input type="text" name="username" required>
 		<span class="hint">Choose a username between 5 and 25 characters.</span>
 
-		<label>Email Address:</label>
+		<label>Email Address: <span class="req">*</span></label>
 		<input type="email" name="email" required>
 
-		<label>Password:</label>
+		<label>Password: <span class="req">*</span></label>
 		<input type="password" name="password" required>
 		<span class="hint">Choose a password that is at least 7 characters.</span>
 

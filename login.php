@@ -102,6 +102,7 @@ if( isset( $error_message ) ){
 	<input type="hidden" name="did_login" value="true">
 </form>
 
+<a href="<?php echo SITE_URL ?>/register.php">Not a member?  Sign up for an account</a>
 
 </body>
 </html>
