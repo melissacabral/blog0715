@@ -112,13 +112,13 @@ if( $_POST['did_register'] ){
 		echo '</div>';
 	}?>
 
-	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" novalidate>
+	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" >
 		<label>Username: <span class="req">*</span></label>
-		<input type="text" name="username" required>
+		<input type="text" name="username" value="<?php echo $_POST['username']; ?>" required>
 		<span class="hint">Choose a username between 5 and 25 characters.</span>
 
 		<label>Email Address: <span class="req">*</span></label>
-		<input type="email" name="email" required>
+		<input type="email" name="email" value="<?php echo $_POST['email']; ?>" required>
 
 		<label>Password: <span class="req">*</span></label>
 		<input type="password" name="password" required>

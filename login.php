@@ -85,13 +85,13 @@ elseif( $_COOKIE['loggedin'] ){
 
 <?php //show the error if it exists
 if( isset( $error_message ) ){
-	echo $error_message;
+	echo '<div class="error message">'. $error_message . '</div>';
 }
 ?>
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 	<label>Username:</label>
-	<input type="text" name="username">
+	<input type="text" name="username" value="<?php echo $_POST['username']; ?>">
 
 	<label>Password:</label>
 	<input type="password" name="password">
