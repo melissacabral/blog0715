@@ -18,6 +18,9 @@ include( SITE_PATH . '/admin/admin-header.php' );
 		case 'manage':
 			include( SITE_PATH . '/admin/admin-manage.php' );
 		break;
+		case 'edit':
+			include( SITE_PATH . '/admin/admin-edit.php' );
+		break;
 		case 'comments':
 			include( SITE_PATH . '/admin/admin-comments.php' );
 		break;
