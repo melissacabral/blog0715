@@ -40,6 +40,7 @@ if($result->num_rows == 0){
 			</ul>
 		</nav>
 		<ul class="utilities">
+			<li><a href="<?php echo SITE_URL ?>">View Blog</a></li>
 			<li><a href="<?php echo SITE_URL; ?>/login.php?logout=true" class="warn">Log Out!</a></li>
 		</ul>
 	</header>
