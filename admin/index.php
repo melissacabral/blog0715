@@ -24,6 +24,9 @@ include( SITE_PATH . '/admin/admin-header.php' );
 		case 'comments':
 			include( SITE_PATH . '/admin/admin-comments.php' );
 		break;
+		case 'editprofile':
+			include(  SITE_PATH . '/admin/admin-editprofile.php'  );
+		break;
 		default:
 			include( SITE_PATH . '/admin/admin-dashboard.php' );
 	} ?>

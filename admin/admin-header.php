@@ -36,7 +36,9 @@ if($result->num_rows == 0){
 					Manage Posts</a></li>
 				<li><a href="<?php echo SITE_URL; ?>/admin/?page=comments">
 					Manage Comments</a></li>
-				<li><a href="<?php echo SITE_URL; ?>/admin">Edit Profile</a></li>
+				<li><a href="<?php echo SITE_URL; ?>/admin/?page=editprofile">
+					Edit Profile
+				</a></li>
 			</ul>
 		</nav>
 		<ul class="utilities">

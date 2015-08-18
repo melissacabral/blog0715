@@ -44,5 +44,25 @@ function list_array( $des_array ){
 	}
 }
 
+//Display any user's picture at any size
+function show_userpic( $user, $size ){
+	global $db;
+	$query_pic = "SELECT userpic 
+			 FROM users
+			 WHERE user_id = $user
+			 AND userpic != ''
+			 LIMIT 1"; 
+	$result_pic = $db->query($query_pic);
+	if( $result_pic->num_rows >= 1 ){
+		$row_pic = $result_pic->fetch_assoc();
+	?>
+		<img src="<?php echo SITE_URL ?>/uploads/<?php echo $row_pic['userpic'] ?>_<?php echo $size ?>.jpg">
+	<?php 
+	}else{ ?>
+		<img src="<?php echo SITE_URL; ?>/images/default.png">
+	<?php 
+	}
+} //end function show_userpic
+
 
 //no close PHP
